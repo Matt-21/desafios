@@ -39,8 +39,8 @@ class Paciente extends Model
   public function rules()
   {
     return [
-      'cpf' => 'required|unique:pacientes,cpf,'.$this->id,
-      'cns' => 'required|unique:pacientes,cns,'.$this->id,
+      'cpf' => 'required|unique:pacientes,cpf',
+      'cns' => 'required|unique:pacientes,cns',
       'nome' => 'required',
       'nome_mae' => 'required',
       'cep' => 'required',

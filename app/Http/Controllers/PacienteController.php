@@ -34,6 +34,7 @@ class PacienteController extends Controller
     $image = $request->file('imagem');
     $image_urn = $image->store('imgs', 'public');
 
+
     $response = Http::get('https://viacep.com.br/ws/'.$request->cep.'/json/');
     $data = $response->json();
 
@@ -53,6 +54,16 @@ class PacienteController extends Controller
         'gia' => isset($data['gia']) ? $data['gia'] : null,
         'ddd' => isset($data['ddd']) ? $data['ddd'] : null,
         'siafi' => isset($data['siafi']) ? $data['siafi'] : null,
+        'data_nascimento' => $request->data_nascimento,
+        'imagem' => $image_urn
+      ];
+    } else {
+      $dados = [
+        'cpf' => $request->cpf,
+        'cns' => $request->cns,
+        'nome' => $request->nome,
+        'nome_mae' => $request->nome_mae,
+        'cep' => $request->cep,
         'data_nascimento' => $request->data_nascimento,
         'imagem' => $image_urn
       ];
@@ -122,6 +133,16 @@ class PacienteController extends Controller
         'gia' => isset($data['gia']) ? $data['gia'] : null,
         'ddd' => isset($data['ddd']) ? $data['ddd'] : null,
         'siafi' => isset($data['siafi']) ? $data['siafi'] : null,
+        'data_nascimento' => $request->data_nascimento,
+        'imagem' => $image_urn
+      ];
+    } else {
+      $dados = [
+        'cpf' => $request->cpf,
+        'cns' => $request->cns,
+        'nome' => $request->nome,
+        'nome_mae' => $request->nome_mae,
+        'cep' => $request->cep,
         'data_nascimento' => $request->data_nascimento,
         'imagem' => $image_urn
       ];
