@@ -21,5 +21,7 @@ php artisan migrate
 ## Se desejar seeds no banco após a migração rode o comando abaixo
 php artisan db:seed
 
+## O arquivo de importação do insomnia se encontra na raiz do projeto com o nome abaixo
+rest_api_insomnia_2023-03-10.json
 
 
