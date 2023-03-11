@@ -16,7 +16,7 @@ chown nginx -R /usr/share/nginx/storage
 php artisan storage:link
 
 ## migrando os dados para o postgres
-php artisan migrate
+php artisan migrate ou php artisan migrate:fresh
 
 ## Se desejar seeds no banco após a migração rode o comando abaixo
 php artisan db:seed
