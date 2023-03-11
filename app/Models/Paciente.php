@@ -38,9 +38,17 @@ class Paciente extends Model
 
   public function rules()
   {
+    if($this->id != null) {
+      $validation_cpf = 'required|unique:pacientes,cpf,'.$this->id;
+      $validation_cns = 'required|unique:pacientes,cns,'.$this->id;
+    } else {
+      $validation_cpf = 'required|unique:pacientes,cpf';
+      $validation_cns = 'required|unique:pacientes,cns';
+    }
+
     return [
-      'cpf' => 'required|unique:pacientes,cpf',
-      'cns' => 'required|unique:pacientes,cns',
+      'cpf' => $validation_cpf,
+      'cns' => $validation_cns,
       'nome' => 'required',
       'nome_mae' => 'required',
       'cep' => 'required',
